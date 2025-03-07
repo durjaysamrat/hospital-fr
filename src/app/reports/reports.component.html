@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Reports</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Report Type</th>
+          <th>Generated Date</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reports">
+          <td>{{ report.id }}</td>
+          <td>{{ report.reportType }}</td>
+          <td>{{ report.generatedDate }}</td>
+          <td>{{ report.reportData }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
