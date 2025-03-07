@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { MComponent } from './m/m.component';
 import { ReportsComponent } from './reports/reports.component';
 import { BillingComponent } from './billing/billing.component';
 
@@ -16,7 +15,6 @@ import { BillingComponent } from './billing/billing.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    MComponent,
     ReportsComponent,
     BillingComponent
   ],
