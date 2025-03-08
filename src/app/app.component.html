@@ -1,7 +1,6 @@
 <header>
-  <nav class="navbar">
-    <a routerLink="/" class="logo">SHM</a>
-
+<app-header></app-header>
+<nav class="navbar">
     <!-- Show navbar links only if the user is logged in -->
     <div class="nav-links" *ngIf="isLoggedIn()">
       <a routerLink="/appointments">Patients</a>
@@ -20,5 +19,5 @@
 
 <!-- Footer -->
 <footer>
-  <p>© 2025 SHM - Smart Healthcare Management. All rights reserved.</p>
+  <app-footer></app-footer>
 </footer>

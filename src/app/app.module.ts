@@ -23,6 +23,8 @@ import { DoctorService } from './services/doctor.service';
 import { BillingService } from './services/billing.service';
 import { AdminService } from './services/admin.service';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HomeComponent } from './home/home.component';
     DoctorAvailabilityComponent,
     BillingComponent,
     AdminDashboardComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
