@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Patient Registration</h2>
+  
+    <div class="form">
+      <input type="text" [(ngModel)]="patient.name" placeholder="Full Name" required />
+      <input type="number" [(ngModel)]="patient.age" placeholder="Age" required />
+      <input type="text" [(ngModel)]="patient.contact" placeholder="Contact Number" required />
+      <textarea [(ngModel)]="patient.medicalHistory" placeholder="Medical History"></textarea>
+      <button (click)="registerPatient()">Register</button>
+    </div>
+  
+    <h3>Registered Patients</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Contact</th>
+        <th>Medical History</th>
+      </tr>
+      <tr *ngFor="let p of patients">
+        <td>{{ p.name }}</td>
+        <td>{{ p.age }}</td>
+        <td>{{ p.contact }}</td>
+        <td>{{ p.medicalHistory }}</td>
+      </tr>
+    </table>
+  </div>
+  

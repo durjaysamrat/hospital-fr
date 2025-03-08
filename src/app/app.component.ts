@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hosp';
+  constructor(private router: Router) {}
+
+  // Check if user is logged in by checking localStorage
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  // Logout function
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

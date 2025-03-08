@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>{{ doctorName }} - Manage Availability</h2>
+  
+    <div class="form">
+      <input type="date" [(ngModel)]="availability.date" required />
+      <input type="time" [(ngModel)]="availability.startTime" required />
+      <input type="time" [(ngModel)]="availability.endTime" required />
+      <button (click)="updateAvailability()">Update Availability</button>
+    </div>
+  
+    <h3>Availability Schedule</h3>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+      </tr>
+      <tr *ngFor="let slot of availabilityList">
+        <td>{{ slot.date }}</td>
+        <td>{{ slot.startTime }}</td>
+        <td>{{ slot.endTime }}</td>
+      </tr>
+    </table>
+  </div>
+  

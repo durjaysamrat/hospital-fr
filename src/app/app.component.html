@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<header>
+  <nav class="navbar">
+    <a routerLink="/" class="logo">SHM</a>
 
-<div class="header">
-  <app-header></app-header>
+    <!-- Show navbar links only if the user is logged in -->
+    <div class="nav-links" *ngIf="isLoggedIn()">
+      <a routerLink="/appointments">Patients</a>
+      <a routerLink="/doctors">Doctors</a>
+      <a routerLink="/billing">Billing</a>
+      <a routerLink="/reports">Reports</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </nav>
+</header>
 
-</div>
+<!-- Main Content -->
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
 
-<div clas="home">
-  <app-home></app-home>
-</div>
-<div class="footer">
-  <app-footer></app-footer>
-</div>
-
-</body>
-</html>
+<!-- Footer -->
+<footer>
+  <p>© 2025 SHM - Smart Healthcare Management. All rights reserved.</p>
+</footer>

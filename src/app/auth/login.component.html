@@ -1,0 +1,13 @@
+<div class="login-container">
+  <h2>Login to SHM</h2>
+  <p>Enter your credentials to access the system.</p>
+
+  <input type="text" [(ngModel)]="username" class="input-field" placeholder="Username" required />
+  <input type="password" [(ngModel)]="password" class="input-field" placeholder="Password" required />
+
+  <button (click)="login()" class="login-button">Login</button>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <p>New user? <a routerLink="/register">Register here</a></p>
+</div>

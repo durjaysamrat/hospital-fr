@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>{{ doctorName }}'s Dashboard</h2>
+  
+    <h3>Today's Appointments</h3>
+    <table>
+      <tr>
+        <th>Patient Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Medical Notes</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.patientName }}</td>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.time }}</td>
+        <td>
+          <input type="text" [(ngModel)]="appointment.medicalNotes" placeholder="Add notes" />
+        </td>
+        <td>
+          <button (click)="updateMedicalRecord(appointment.id, appointment.medicalNotes)">Save</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  

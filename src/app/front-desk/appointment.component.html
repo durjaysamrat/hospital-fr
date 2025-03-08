@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Appointment Management</h2>
+  
+    <div class="form">
+      <input type="text" [(ngModel)]="newAppointment.patientName" placeholder="Patient Name" required />
+      <input type="text" [(ngModel)]="newAppointment.doctor" placeholder="Doctor Name" required />
+      <input type="date" [(ngModel)]="newAppointment.date" required />
+      <input type="time" [(ngModel)]="newAppointment.time" required />
+      <button (click)="scheduleAppointment()">Schedule Appointment</button>
+    </div>
+  
+    <h3>Scheduled Appointments</h3>
+    <table>
+      <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.patientName }}</td>
+        <td>{{ appointment.doctor }}</td>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.time }}</td>
+        <td><button (click)="cancelAppointment(appointment.id)">Cancel</button></td>
+      </tr>
+    </table>
+  </div>
+  

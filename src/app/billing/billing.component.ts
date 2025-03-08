@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BillingService } from './billing.service';
+import { BillingService } from '../services/billing.service';
 
 @Component({
   selector: 'app-billing',
@@ -7,17 +7,31 @@ import { BillingService } from './billing.service';
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  bills: any[] = [];
+  invoices: any[] = [];
+  newInvoice = { patientName: '', service: '', amount: '', status: 'Pending' };
 
   constructor(private billingService: BillingService) {}
 
-  ngOnInit(): void {
-    this.loadBills();
+  ngOnInit() {
+    this.loadInvoices();
   }
 
-  loadBills(): void {
-    this.billingService.getBills().subscribe((data) => {
-      this.bills = data;
+  loadInvoices() {
+    this.billingService.getInvoices().subscribe((data) => {
+      this.invoices = data;
+    });
+  }
+
+  generateInvoice() {
+    this.billingService.addInvoice(this.newInvoice).subscribe(() => {
+      this.loadInvoices();
+      this.newInvoice = { patientName: '', service: '', amount: '', status: 'Pending' };
+    });
+  }
+
+  markAsPaid(id: number) {
+    this.billingService.updateInvoiceStatus(id, 'Paid').subscribe(() => {
+      this.loadInvoices();
     });
   }
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +9,15 @@ export class BillingService {
 
   constructor(private http: HttpClient) {}
 
-  getBills(): Observable<any[]> {
+  getInvoices() {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  addBill(bill: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, bill);
+  addInvoice(invoice: any) {
+    return this.http.post(this.apiUrl, invoice);
+  }
+
+  updateInvoiceStatus(id: number, status: string) {
+    return this.http.put(`${this.apiUrl}/update/${id}`, { status });
   }
 }
